@@ -6,11 +6,13 @@ import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import SplashCursor from './components/SplashCursor';
 
 function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <SplashCursor />
         <Navbar />
         <main>
           <Hero />
