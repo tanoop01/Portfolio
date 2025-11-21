@@ -8,12 +8,102 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { 
+      name: 'Home', 
+      href: '#home',
+      gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
+      iconColor: "group-hover:text-blue-500 dark:group-hover:text-blue-400"
+    },
+    { 
+      name: 'About', 
+      href: '#about',
+      gradient: "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
+      iconColor: "group-hover:text-orange-500 dark:group-hover:text-orange-400"
+    },
+    { 
+      name: 'Skills', 
+      href: '#skills',
+      gradient: "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
+      iconColor: "group-hover:text-green-500 dark:group-hover:text-green-400"
+    },
+    { 
+      name: 'Projects', 
+      href: '#projects',
+      gradient: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
+      iconColor: "group-hover:text-purple-500 dark:group-hover:text-purple-400"
+    },
+    { 
+      name: 'Contact', 
+      href: '#contact',
+      gradient: "radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)",
+      iconColor: "group-hover:text-red-500 dark:group-hover:text-red-400"
+    },
   ];
+
+  const itemVariants = {
+    initial: {
+      rotateX: 0,
+      opacity: 1
+    },
+    hover: {
+      rotateX: -90,
+      opacity: 0
+    }
+  };
+
+  const backVariants = {
+    initial: {
+      rotateX: 90,
+      opacity: 0
+    },
+    hover: {
+      rotateX: 0,
+      opacity: 1
+    }
+  };
+
+  const glowVariants = {
+    initial: {
+      opacity: 0,
+      scale: 0.8
+    },
+    hover: {
+      opacity: 1,
+      scale: 2,
+      transition: {
+        opacity: {
+          duration: 0.5,
+          ease: [0.4, 0, 0.2, 1]
+        },
+        scale: {
+          duration: 0.5,
+          type: "spring",
+          stiffness: 300,
+          damping: 25
+        }
+      }
+    }
+  };
+
+  const navGlowVariants = {
+    initial: {
+      opacity: 0
+    },
+    hover: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
+
+  const sharedTransition = {
+    type: "spring",
+    stiffness: 100,
+    damping: 20,
+    duration: 0.5
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,79 +132,109 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-4 left-0 right-0 z-50 flex justify-center transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            onClick={(e) => scrollToSection(e, '#home')}
-            className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Portfolio
-          </motion.a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)}
-                className="px-3 lg:px-4 py-2 text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+      <motion.div 
+        className="hidden md:block p-1.5 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 shadow-2xl dark:shadow-gray-900/40 relative overflow-hidden"
+        initial="initial"
+        whileHover="hover"
+      >
+        <motion.div 
+          className="absolute -inset-2 rounded-full z-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 50%, rgba(239,68,68,0.1) 100%)"
+          }}
+          variants={navGlowVariants}
+        />
+        <ul className="flex items-center gap-1 relative z-10">
+          {navItems.map((item) => (
+            <motion.li key={item.name} className="relative">
+              <motion.div
+                className="block rounded-full overflow-visible group relative"
+                style={{ perspective: "600px" }}
+                whileHover="hover"
+                initial="initial"
               >
-                {item.name}
-              </motion.a>
-            ))}
-            <div className="ml-4">
-              <ThemeToggle />
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+                {/* Glow effect */}
+                <motion.div
+                  className="absolute inset-0 z-0 pointer-events-none rounded-full"
+                  variants={glowVariants}
+                  style={{
+                    background: item.gradient,
+                    opacity: 0
+                  }}
+                />
+                {/* Front face */}
+                <motion.a
+                  href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href)}
+                  className="flex items-center px-3 py-1.5 relative z-10 bg-transparent text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors rounded-full text-sm font-medium"
+                  variants={itemVariants}
+                  transition={sharedTransition}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transformOrigin: "center bottom"
+                  }}
+                >
+                  {item.name}
+                </motion.a>
+                {/* Back face */}
+                <motion.a
+                  href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href)}
+                  className="flex items-center px-3 py-1.5 absolute inset-0 z-10 bg-transparent text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors rounded-full text-sm font-medium"
+                  variants={backVariants}
+                  transition={sharedTransition}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transformOrigin: "center top",
+                    transform: "rotateX(90deg)"
+                  }}
+                >
+                  {item.name}
+                </motion.a>
+              </motion.div>
+            </motion.li>
+          ))}
+          <li className="ml-1 pl-1.5 border-l border-gray-300/50 dark:border-gray-600/50">
             <ThemeToggle />
-            <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-900 dark:text-white p-2"
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
-        </div>
+          </li>
+        </ul>
+      </motion.div>
+
+      {/* Mobile Menu Button */}
+      <div className="md:hidden flex items-center gap-3 px-4 py-2 rounded-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+        <ThemeToggle />
+        <motion.button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-gray-900 dark:text-white p-2"
+          whileTap={{ scale: 0.9 }}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </motion.button>
       </div>
 
       {/* Mobile Menu */}
       <motion.div
-        className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}
-        initial={{ opacity: 0, height: 0 }}
+        className={`md:hidden absolute top-full mt-2 left-1/2 -translate-x-1/2 w-48 ${isMobileMenuOpen ? 'block' : 'hidden'}`}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{
           opacity: isMobileMenuOpen ? 1 : 0,
-          height: isMobileMenuOpen ? 'auto' : 0
+          scale: isMobileMenuOpen ? 1 : 0.95
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div className="px-3 py-2 space-y-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-lg">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className="block px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-xl transition-colors"
             >
               {item.name}
             </a>
