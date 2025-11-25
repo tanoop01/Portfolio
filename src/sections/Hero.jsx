@@ -21,7 +21,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-white dark:bg-gray-900"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -60,7 +60,7 @@ const Hero = () => {
             variants={slideUp}
             className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 font-semibold"
           >
-            Aspiring Developer | Building clean, modern web experiences
+            Aspiring Developer | AI Enthusiast | Tech Explorer
           </motion.p>
 
           {/* Description */}
@@ -68,8 +68,7 @@ const Hero = () => {
             variants={slideUp}
             className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Passionate about creating beautiful, functional, and user-friendly web applications
-            with modern technologies and best practices.
+            Exploring the world of technology through code, creativity, and a growing passion for AI and intelligent systems.
           </motion.p>
 
           {/* CTA Buttons */}

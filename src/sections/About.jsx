@@ -19,7 +19,7 @@ const About = () => {
         <Card className="p-6 sm:p-8">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <span className="w-2 h-2 bg-primary-light dark:bg-primary-dark rounded-full"></span>
-            What I Do
+            Who am I
           </h3>
           <motion.ul
             className="space-y-3"
@@ -28,7 +28,7 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {aboutData.whatIDo.map((item, index) => (
+            {aboutData.whoAmI.map((item, index) => (
               <motion.li
                 key={index}
                 variants={slideUp}

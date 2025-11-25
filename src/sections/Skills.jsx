@@ -14,14 +14,14 @@ const Skills = () => {
       />
 
       {/* Skills Categories */}
-      <div className="space-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {skillsData.categories.map((category, categoryIndex) => (
-          <div key={categoryIndex}>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center lg:text-left">
+          <Card key={categoryIndex} className="p-6">
+            <h3 className="text-xl font-bold text-white mb-6 text-center">
               {category.name}
             </h3>
             <motion.div
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+              className="space-y-4"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -33,27 +33,26 @@ const Skills = () => {
                   <motion.div
                     key={skillIndex}
                     variants={slideUp}
+                    className="flex items-center gap-4 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition-colors group"
                   >
-                    <Card className="p-6 text-center group cursor-pointer h-full">
-                      <Icon
-                        className={`w-12 h-12 mx-auto mb-3 ${skill.color} transition-transform duration-300 group-hover:scale-110`}
-                      />
-                      <h4 className="font-semibold text-gray-900 dark:text-white">
-                        {skill.name}
-                      </h4>
-                    </Card>
+                    <Icon
+                      className={`w-8 h-8 ${skill.color} transition-transform duration-300 group-hover:scale-110`}
+                    />
+                    <h4 className="font-medium text-white">
+                      {skill.name}
+                    </h4>
                   </motion.div>
                 );
               })}
             </motion.div>
-          </div>
+          </Card>
         ))}
       </div>
 
       {/* Currently Learning Section */}
       <div className="mt-16">
         <Card className="p-8" gradient>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">
             Currently Learning
           </h3>
           <motion.div
@@ -69,7 +68,7 @@ const Skills = () => {
                 <motion.div
                   key={index}
                   variants={slideUp}
-                  className="flex flex-col items-center gap-3 p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors group"
+                  className="flex flex-col items-center gap-3 p-4 rounded-lg bg-gray-800/10 backdrop-blur-md hover:bg-gray-800/20 transition-colors group border border-gray-700/20"
                 >
                   <div className="relative">
                     <Icon
@@ -77,7 +76,7 @@ const Skills = () => {
                     />
                     <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
                   </div>
-                  <span className="text-sm font-medium text-center text-gray-700 dark:text-gray-300">
+                  <span className="text-sm font-medium text-center text-gray-300">
                     {skill.name}
                   </span>
                 </motion.div>

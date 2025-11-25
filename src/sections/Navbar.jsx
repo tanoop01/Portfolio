@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from '../components/ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +32,7 @@ const Navbar = () => {
       iconColor: "group-hover:text-purple-500 dark:group-hover:text-purple-400"
     },
     { 
-      name: 'Contact', 
+      name: 'Collaborate', 
       href: '#contact',
       gradient: "radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)",
       iconColor: "group-hover:text-red-500 dark:group-hover:text-red-400"
@@ -138,7 +137,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <motion.div 
-        className="hidden md:block p-1.5 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 shadow-2xl dark:shadow-gray-900/40 relative overflow-hidden"
+        className="hidden md:block p-1.5 rounded-full bg-black/10 backdrop-blur-xl border border-gray-700/60 shadow-2xl shadow-gray-900/40 relative overflow-hidden"
         initial="initial"
         whileHover="hover"
       >
@@ -171,7 +170,7 @@ const Navbar = () => {
                 <motion.a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="flex items-center px-3 py-1.5 relative z-10 bg-transparent text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors rounded-full text-sm font-medium"
+                  className="flex items-center px-3 py-1.5 relative z-10 bg-transparent text-gray-300 group-hover:text-white transition-colors rounded-full text-sm font-medium"
                   variants={itemVariants}
                   transition={sharedTransition}
                   style={{
@@ -185,7 +184,7 @@ const Navbar = () => {
                 <motion.a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="flex items-center px-3 py-1.5 absolute inset-0 z-10 bg-transparent text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors rounded-full text-sm font-medium"
+                  className="flex items-center px-3 py-1.5 absolute inset-0 z-10 bg-transparent text-gray-300 group-hover:text-white transition-colors rounded-full text-sm font-medium"
                   variants={backVariants}
                   transition={sharedTransition}
                   style={{
@@ -199,18 +198,14 @@ const Navbar = () => {
               </motion.div>
             </motion.li>
           ))}
-          <li className="ml-1 pl-1.5 border-l border-gray-300/50 dark:border-gray-600/50">
-            <ThemeToggle />
-          </li>
         </ul>
       </motion.div>
 
       {/* Mobile Menu Button */}
-      <div className="md:hidden flex items-center gap-3 px-4 py-2 rounded-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
-        <ThemeToggle />
+      <div className="md:hidden flex items-center gap-3 px-4 py-2 rounded-full bg-gray-900/70 backdrop-blur-md border border-gray-700/50 shadow-lg">
         <motion.button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-gray-900 dark:text-white p-2"
+          className="text-white p-2"
           whileTap={{ scale: 0.9 }}
           aria-label="Toggle menu"
         >
@@ -228,13 +223,13 @@ const Navbar = () => {
         }}
         transition={{ duration: 0.2 }}
       >
-        <div className="px-3 py-2 space-y-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-lg">
+        <div className="px-3 py-2 space-y-1 bg-gray-900/70 backdrop-blur-md border border-gray-700/50 rounded-2xl shadow-lg">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-xl transition-colors"
+              className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 rounded-xl transition-colors"
             >
               {item.name}
             </a>

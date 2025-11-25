@@ -10,13 +10,13 @@ const Button = ({
   icon: Icon,
   ...props 
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 overflow-hidden';
   
   const variants = {
-    primary: 'bg-primary-light dark:bg-primary-dark text-white hover:opacity-90 focus:ring-primary-light dark:focus:ring-primary-dark',
-    secondary: 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-gray-400',
-    outline: 'border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-gray-400',
-    ghost: 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-gray-400'
+    primary: 'bg-black/50 backdrop-blur-xl border border-gray-700/60 text-white hover:bg-black/70 focus:ring-primary-dark shadow-lg hover:shadow-xl',
+    secondary: 'bg-black/40 backdrop-blur-xl border border-gray-700/50 text-white hover:bg-black/60 focus:ring-gray-400 shadow-lg hover:shadow-xl',
+    outline: 'bg-transparent backdrop-blur-xl border-2 border-gray-600/60 text-white hover:bg-black/20 focus:ring-gray-400 shadow-md hover:shadow-lg',
+    ghost: 'bg-transparent backdrop-blur-xl text-white hover:bg-black/20 focus:ring-gray-400'
   };
   
   const sizes = {
@@ -39,8 +39,9 @@ const Button = ({
       <motion.a
         href={href}
         className={classes}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
         target={href.startsWith('http') ? '_blank' : undefined}
         rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
         {...props}
@@ -54,8 +55,9 @@ const Button = ({
     <motion.button
       className={classes}
       onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       {...props}
     >
       {content}

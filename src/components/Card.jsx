@@ -11,10 +11,10 @@ const Card = ({
   const baseStyles = 'rounded-xl transition-all duration-300';
   
   const styles = glass
-    ? 'bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg border border-gray-200/20 dark:border-gray-700/20'
+    ? 'bg-gray-800/10 backdrop-blur-lg border border-gray-700/20'
     : gradient
-    ? 'bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700'
-    : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+    ? 'bg-gradient-to-br from-gray-800/10 to-gray-900/10 backdrop-blur-lg border border-gray-700/20'
+    : 'bg-gray-800/10 backdrop-blur-lg border border-gray-700/30';
   
   const hoverStyles = hover
     ? 'hover:shadow-xl hover:shadow-primary-light/10 dark:hover:shadow-primary-dark/10 hover:-translate-y-1'

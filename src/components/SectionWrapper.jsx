@@ -8,9 +8,9 @@ const SectionWrapper = ({
   background = 'default'
 }) => {
   const backgrounds = {
-    default: 'bg-white dark:bg-gray-900',
-    alt: 'bg-gray-50 dark:bg-gray-800/50',
-    gradient: 'bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-800/30'
+    default: 'bg-transparent',
+    alt: 'bg-transparent',
+    gradient: 'bg-transparent'
   };
   
   return (

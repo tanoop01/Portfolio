@@ -7,26 +7,26 @@ export const contactData = {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/yourusername",
-      handle: "@yourusername"
+      url: "https://github.com/tanoop01",
+      handle: "tanoop01"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/yourusername",
-      handle: "Your Name"
+      url: "https://linkedin.com/in/anooptripathi428",
+      handle: "Anoop Tripathi"
     },
     {
       name: "Twitter",
       icon: Twitter,
-      url: "https://twitter.com/yourusername",
-      handle: "@yourusername"
+      url: "https://twitter.com/tanoop428",
+      handle: "@tanoop428"
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:your.email@example.com",
-      handle: "your.email@example.com"
+      url: "t.luck.0101@gmail.com",
+      handle: "t.luck.0101@gmail.com"
     }
   ]
 };

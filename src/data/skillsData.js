@@ -18,22 +18,19 @@ export const skillsData = {
   description: "Technologies and tools I work with to bring ideas to life",
   categories: [
     {
-      name: "Core Skills",
+      name: "Development",
       skills: [
-        { icon: Code2, name: "JavaScript", color: "text-yellow-500" },
-        { icon: Code2, name: "React", color: "text-blue-500" },
-        { icon: Layout, name: "HTML5", color: "text-orange-500" },
-        { icon: Palette, name: "CSS3", color: "text-blue-400" },
-        { icon: FileJson, name: "TypeScript", color: "text-blue-600" },
-        { icon: GitBranch, name: "Git & GitHub", color: "text-gray-600 dark:text-gray-400" }
+        { icon: Code2, name: "MERN Full Stack", color: "text-yellow-500" },
+        { icon: Code2, name: "Next.j", color: "text-blue-500" },
+        
       ]
     },
     {
-      name: "Frontend",
+      name: "AI/ML",
       skills: [
-        { icon: Layout, name: "Tailwind CSS", color: "text-cyan-500" },
-        { icon: Workflow, name: "Framer Motion", color: "text-purple-500" },
-        { icon: Code2, name: "Next.js", color: "text-gray-800 dark:text-gray-200" },
+        { icon: Layout, name: "Kaggle", color: "text-cyan-500" },
+        { icon: Workflow, name: "Python", color: "text-purple-500" },
+        { icon: Code2, name: "", color: "text-gray-800 dark:text-gray-200" },
         { icon: Smartphone, name: "Responsive Design", color: "text-green-500" }
       ]
     },
